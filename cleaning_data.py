@@ -1,3 +1,11 @@
+'''
+Author: reyne Jasson
+date: 10/10/2021
+
+Meu modulo cli
+
+'''
+
 import pandas as pd
 import click
 
@@ -5,8 +13,9 @@ import click
 
 def load_data(file:str,encond:str) -> pd.DataFrame:
     '''Reads a csv of given enconding and returns the dataframe'''
+    dataframe_autos = pd.read_csv(file,encoding=encond)
 
-    return pd.read_csv(file,encoding=encond)
+    return dataframe_autos.copy()
 
 autos = load_data('autos.csv',encond='Latin-1')
 
@@ -17,14 +26,16 @@ autos.rename(columns=dict(yearOfRegistration = 'registration_year',
                          odometer = 'odometer_km'), inplace=True)
 
 
-autos['price'] = autos['price'].str.replace(r'[,$]','',regex=True)
-autos['odometer'] = autos['odometer'].str.replace(r'[,km]','',regex=True)
+
+autos.replace(to_replace=r'[,$km]',value='',inplace=True,regex=True)
+
 
 autos['odometer'] = pd.to_numeric(autos['odometer'])
 autos['price'] = pd.to_numeric(autos['price'])
 
 
 ##
+
 autos = autos[autos["price"].between(1,351000)]
 autos = autos[autos["registration_year"].between(1900,2016)]
 
