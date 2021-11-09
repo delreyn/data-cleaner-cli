@@ -2,8 +2,7 @@
 Author: reyne Jasson
 date: 10/10/2021
 
-Meu modulo cli
-
+A CLI module using click for simple dataset exploration with the dataquest.io webscraped dataset
 '''
 
 import pandas as pd
@@ -22,12 +21,12 @@ def load_data(file:str = 'autos.csv',encond:str='Latin-1') -> pd.DataFrame:
 @click.option("--file",default="autos.csv",type=str,
                 help="provide the dataset csv")
 def process(encond="Latin-1",file="autos.csv"):
-    """The data """
+    """The data will be processed and info will be displayed"""
 
     autos = load_data(file,encond)
 
-    autos.replace(to_replace=r'[(,)($)(km)]' ,value='',
-                    inplace=True,regex=True,)
+    autos.replace(to_replace=r'([,$])|km' ,value='',
+                    inplace=True,regex=True)
 
     autos.rename(columns=dict(yearOfRegistration = 'registration_year',
                             monthOfRegistration = 'registration_month',
