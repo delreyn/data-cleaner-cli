@@ -5,7 +5,7 @@ This project is a simple CLI tool made in python with the package [click](https:
 
 The goal was just to make some exploratory analsys with a jupyter [notebook](Basics.ipynb) and then export it to a python script, using the command: `make lint` get some feedback from the [pylint package](https://pylint.org/). This was also a lesson about good practices and documentation.
 
-The dataset is the 
+The dataset is the dataquest.io [scraped cars](https://github.com/delreyn/data-cleaner-cli/blob/212512bae42416b2f3d965502ee824692bd2c457/autos.csv)
 
 ## the tool
 ---
