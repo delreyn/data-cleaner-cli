@@ -17,9 +17,9 @@ def load_data(file:str = 'autos.csv',encond:str='Latin-1') -> pd.DataFrame:
 
 @click.command()
 @click.option("--encond",default="Latin-1",type=str,
-                help="Provide the char .csv enconding")
+                help="Provide the char .csv enconding",show_default=True)
 @click.option("--file",default="autos.csv",type=str,
-                help="provide the dataset csv")
+                help="provide the dataset csv",show_default=True)
 def process(encond="Latin-1",file="autos.csv"):
     """The data will be processed and info will be displayed"""
 
