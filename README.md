@@ -10,4 +10,4 @@ The goal was just to make some exploratory analsys with a jupyter notebook and t
 
 The tool makes all processing in the dataset described in the notebook, then it shows some information processed and then ask if you would like to save it in .csv file. 
 
-![]
+![Usage](usage.gif)
